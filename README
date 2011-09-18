@@ -1,0 +1,128 @@
+###
+#  Released under WTFPL: http://sam.zoy.org/wtfpl/COPYING   
+###
+
+#### This was first written for the 2008-3yr acs (and django 1.0.2, python 2.5ish, postgres 8.1ish), and later adapted for the 2009-5yr acs.  The original goal of this project was to create an R importer in place of the government's SAS stuff. Which it generally does, though repeated variable names can make things confusing. The census is a big release, but by maintaining the table structure we can break things into manageable chunks. Moreover, we can query lines in the table name, universe, line, etc. But if a db is our goal, reading in the tables with parse_census.py one can 'introspect' the layout of the files, and then import them into postgres, join them with shapefiles, look at them with qgis etc, hack them up for further analysis, etc. etc. 
+
+###
+# Django models are used to represent certain census meta data: the geo hierarchy, which you'll probably need to match up to shapefiles, and the table description files. Here's what they look like in postgres, more or less
+
+acs20095=# \d
+   -- EXCERPTED, AND OCCASIONALLY COMMENTED --  List of relations
+ Schema |            Name            |   Type   |    Owner     
+--------+----------------------------+----------+--------------
+-- Where geo shit is kept:
+ public | acs_09_5yr_geo_area        | table    | db_owner
+-- Where table metadata is at: 
+ public | acs_09_5yr_table_summary   | table    | db_owner
+
+-- Other tables can be fully imported into postgres, like the ones below. Tables are loaded one by one--they can be large, and there's a lot of 'em, so it didn't make sense to load them all. Instead, a text dump of each one is available. Could be improved by prespecifying a configurable group of tables to be downloaded.
+ public | b02001                     | table    | db_owner
+ public | b03001                     | table    | db_owner
+ public | b11001                     | table    | db_owner
+ public | b15002                     | table    | db_owner
+ public | b17017                     | table    | db_owner
+ public | b19013                     | table    | db_owner
+ public | b20004                     | table    | db_owner
+-- I've mostly used this for census tracts--which were generally the best available for the 2009 5-yr--though all other geographies should work. Occasionally I forget and save tables like this (140 is tract):
+ public | b20004_140                     | table    | db_owner
+
+
+-- The below is from a csv version of the excel merge file. If they've since made big changes to the merge file, the parser would need it's tires kicked. 
+
+acs20095=# \d acs_09_5yr_table_summary;
+      Table "public.acs_09_5yr_table_summary"
+    Column    |          Type          | Modifiers 
+--------------+------------------------+-----------
+ tblid        | character varying(10)  | not null
+ seq          | integer                | not null
+ position     | integer                | not null
+ cells        | character varying(15)  | not null
+ title        | character varying(255) | not null
+ subject_area | character varying(63)  | not null
+ universe     | character varying(255) | not null
+
+--
+
+
+# From python django shell
+
+# Find tables with the word 'education' in their title
+>>> acs_tools.find_table('education')
+Found table B07409: GEOGRAPHICAL MOBILITY IN THE PAST YEAR BY EDUCATIONAL ATTAINMENT FOR RESIDENCE 1 YEAR AGO IN THE UNITED STATES
+Found table B06009: PLACE OF BIRTH BY EDUCATIONAL ATTAINMENT IN THE UNITED STATES
+Found table B21003: VETERAN STATUS BY EDUCATIONAL ATTAINMENT FOR THE CIVILIAN POPULATION 25 YEARS AND OVER
+... ( Produces a ton of tables... additional output suppressed )
+
+# show table metadata for a particular table
+>>> acs_tools.table_metadata('B21003')
+
+Showing metadata for table B21003: VETERAN STATUS BY EDUCATIONAL ATTAINMENT FOR THE CIVILIAN POPULATION 25 YEARS AND OVER --- Universe:  Civilian population 25 years and over
+Reference file sequence: 67
+ 67_56: Total:
+ 67_57: Veteran:
+ 67_58: Less than high school graduate
+ 67_59: High school graduate (includes equivalency)
+ 67_60: Some college or associate's degree
+ 67_61: Bachelor's degree or higher
+ 67_62: Nonveteran:
+ 67_63: Less than high school graduate
+ 67_64: High school graduate (includes equivalency)
+ 67_65: Some college or associate's degree
+ 67_66: Bachelor's degree or higher
+
+>>> acs_tools.dump_table('B21002','140')
+
+#Writes all census tract-level data (140 is census speak for census tracts)
+
+Writing data to file: 20095_B21003_140.txt
+
+# configured a parser to generate a database schema
+
+$ python parse_census.py
+
+# creates schema_parsed.txt which includes margins of error as margin_ columns
+
+create table B21003_140 (
+        "geo_name" varchar(62),
+        "state" char(2),
+        "county" char(3),
+        "tract" char(6),
+        "total" int,
+        "margin_total" int,
+        "veteran" int,
+        "margin_veteran" int,
+        "less_than_high_school_graduate" int,
+        "margin_less_than_high_school_graduate" int,
+        "high_school_graduate_(includes_equivalency)" int,
+        "margin_high_school_graduate_(includes_equivalency)" int,
+        "some_college_or_associates_degree" int,
+        "margin_some_college_or_associates_degree" int,
+        "bachelors_degree_or_higher" int,
+        "margin_bachelors_degree_or_higher" int,
+        "nonveteran" int,
+        "margin_nonveteran" int,
+        "less_than_high_school_graduate_1" int,
+        "margin_less_than_high_school_graduate_1" int,
+        "high_school_graduate_(includes_equivalency)_1" int,
+        "margin_high_school_graduate_(includes_equivalency)_1" int,
+        "some_college_or_associates_degree_1" int,
+        "margin_some_college_or_associates_degree_1" int,
+        "bachelors_degree_or_higher_1" int,
+        "margin_bachelors_degree_or_higher_1" int
+);
+
+# Create the table in postgres:
+
+$ psql -U irw_postgres -d acs20095 < schema_parsed.txt
+
+# then add it in like this:
+
+acs20095=# SET CLIENT_ENCODING TO Latin1;
+SET
+acs20095=# copy B21003_140 from '/full/path/to/20095_B21003_140.txt' with delimiter as e'\t' null as '.';
+COPY 65461
+
+# and now the table is in the db
+
+
