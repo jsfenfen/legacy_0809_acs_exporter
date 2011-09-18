@@ -1,0 +1,442 @@
+from acs_09_5yr import parsemerge
+parsemerge.table_metadata('B06011')
+parsemerge.dump_table('B06011', '080')
+
+--
+>>> >>> parsemerge.table_data('B20004')
+Showing metadata for table B20004: MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2009 INFLATION-ADJUSTED DOLLARS) BY SEX BY EDUCATIONAL ATTAINMENT FOR THE POPULATION 25 YEARS AND OVER --- Universe:  Population 25 years and over with earnings
+Reference file sequence: 61
+ 61_60: Total:
+ 61_61: Less than high school graduate
+ 61_62: High school graduate (includes equivalency)
+ 61_63: Some college or associate's degree
+ 61_64: Bachelor's degree
+ 61_65: Graduate or professional degree
+ 61_66: Male:
+ 61_67: Less than high school graduate
+ 61_68: High school graduate (includes equivalency)
+ 61_69: Some college or associate's degree
+ 61_70: Bachelor's degree
+ 61_71: Graduate or professional degree
+ 61_72: Female:
+ 61_73: Less than high school graduate
+ 61_74: High school graduate (includes equivalency)
+ 61_75: Some college or associate's degree
+ 61_76: Bachelor's degree
+ 61_77: Graduate or professional degree
+>>> parsemerge.dump_table('B20004', '140')
+Writing data to file: /Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/20095_B20004_140.txt 
+
+
+>>> parsemerge.table_metadata('B16010')
+Showing metadata for table B16010: EDUCATIONAL ATTAINMENT AND EMPLOYMENT STATUS BY LANGUAGE SPOKEN AT HOME FOR THE POPULATION 25 YEARS AND OVER --- Universe:  Population 25 years and over
+Reference file sequence: 43
+ 43_94: Total:
+ 43_95: Less than high school graduate:
+ 43_96: In labor force:
+ 43_97: Speak only English
+ 43_98: Speak Spanish
+ 43_99: Speak other Indo-European languages
+ 43_100: Speak Asian and Pacific Island languages
+ 43_101: Speak other languages
+ 43_102: Not in labor force:
+ 43_103: Speak only English
+ 43_104: Speak Spanish
+ 43_105: Speak other Indo-European languages
+ 43_106: Speak Asian and Pacific Island languages
+ 43_107: Speak other languages
+ 43_108: High school graduate (includes equivalency):
+ 43_109: In labor force:
+ 43_110: Speak only English
+ 43_111: Speak Spanish
+ 43_112: Speak other Indo-European languages
+ 43_113: Speak Asian and Pacific Island languages
+ 43_114: Speak other languages
+ 43_115: Not in labor force:
+ 43_116: Speak only English
+ 43_117: Speak Spanish
+ 43_118: Speak other Indo-European languages
+ 43_119: Speak Asian and Pacific Island languages
+ 43_120: Speak other languages
+ 43_121: Some college or associate's degree:
+ 43_122: In labor force:
+ 43_123: Speak only English
+ 43_124: Speak Spanish
+ 43_125: Speak other Indo-European languages
+ 43_126: Speak Asian and Pacific Island languages
+ 43_127: Speak other languages
+ 43_128: Not in labor force:
+ 43_129: Speak only English
+ 43_130: Speak Spanish
+ 43_131: Speak other Indo-European languages
+ 43_132: Speak Asian and Pacific Island languages
+ 43_133: Speak other languages
+ 43_134: Bachelor's degree or higher:
+ 43_135: In labor force:
+ 43_136: Speak only English
+ 43_137: Speak Spanish
+ 43_138: Speak other Indo-European languages
+ 43_139: Speak Asian and Pacific Island languages
+ 43_140: Speak other languages
+ 43_141: Not in labor force:
+ 43_142: Speak only English
+ 43_143: Speak Spanish
+ 43_144: Speak other Indo-European languages
+ 43_145: Speak Asian and Pacific Island languages
+ 43_146: Speak other languages
+>>> 
+>>> parsemerge.dump_table('B16010', '140')
+
+Writing data to file: /Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/20095_B16010_140.txt 
+
+>>> parsemerge.table_metadata('B15002')
+Showing metadata for table B15002: SEX BY EDUCATIONAL ATTAINMENT FOR THE POPULATION 25 YEARS AND OVER --- Universe:  Population 25 years and over
+Reference file sequence: 40
+ 40_90: Total:
+ 40_91: Male:
+ 40_92: No schooling completed
+ 40_93: Nursery to 4th grade
+ 40_94: 5th and 6th grade
+ 40_95: 7th and 8th grade
+ 40_96: 9th grade
+ 40_97: 10th grade
+ 40_98: 11th grade
+ 40_99: 12th grade, no diploma
+ 40_100: High school graduate, GED, or alternative
+ 40_101: Some college, less than 1 year
+ 40_102: Some college, 1 or more years, no degree
+ 40_103: Associate's degree
+ 40_104: Bachelor's degree
+ 40_105: Master's degree
+ 40_106: Professional school degree
+ 40_107: Doctorate degree
+ 40_108: Female:
+ 40_109: No schooling completed
+ 40_110: Nursery to 4th grade
+ 40_111: 5th and 6th grade
+ 40_112: 7th and 8th grade
+ 40_113: 9th grade
+ 40_114: 10th grade
+ 40_115: 11th grade
+ 40_116: 12th grade, no diploma
+ 40_117: High school graduate, GED, or alternative
+ 40_118: Some college, less than 1 year
+ 40_119: Some college, 1 or more years, no degree
+ 40_120: Associate's degree
+ 40_121: Bachelor's degree
+ 40_122: Master's degree
+ 40_123: Professional school degree
+ 40_124: Doctorate degree
+
+>>> parsemerge.dump_table('B15002', '140')
+Writing data to file: /Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/20095_B15002_140.txt 
+
+mrcomputer:acs_09_5yr mrcomputeruser$ python parse_census.py 
+mrcomputer:acs_09_5yr mrcomputeruser$ pwd
+/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr
+
+
+File size: 65461 lines
+row_name, max_field_length, nulls, ints, floats, strings
+
+0: geo_name, 62, 0, 0, 0, 65461
+1: state, 2, 0, 53548, 0, 11913
+2: county, 3, 0, 18552, 0, 46909
+3: tract, 6, 0, 28776, 0, 36685
+4: Total:, 5, 0, 65063, 0, 398
+5: margin_Total:, 4, 0, 65461, 0, 0
+6: Male:, 5, 0, 65031, 0, 430
+7: margin_Male:, 4, 0, 65461, 0, 0
+8: No schooling completed, 4, 0, 33269, 0, 32192
+9: margin_No schooling completed, 4, 0, 65461, 0, 0
+10: Nursery to 4th grade, 3, 0, 24372, 0, 41089
+11: margin_Nursery to 4th grade, 3, 0, 65461, 0, 0
+12: 5th and 6th grade, 4, 0, 36104, 0, 29357
+13: margin_5th and 6th grade, 4, 0, 65461, 0, 0
+14: 7th and 8th grade, 4, 0, 49421, 0, 16040
+15: margin_7th and 8th grade, 3, 0, 65461, 0, 0
+16: 9th grade, 4, 0, 46086, 0, 19375
+17: margin_9th grade, 4, 0, 65461, 0, 0
+18: 10th grade, 4, 0, 51148, 0, 14313
+19: margin_10th grade, 3, 0, 65461, 0, 0
+20: 11th grade, 4, 0, 51425, 0, 14036
+21: margin_11th grade, 3, 0, 65461, 0, 0
+22: 12th grade, no diploma, 4, 0, 52556, 0, 12905
+23: margin_12th grade, no diploma, 3, 0, 65461, 0, 0
+24: High school graduate, GED, or alternative, 4, 0, 64726, 0, 735
+25: margin_High school graduate, GED, or alternative, 4, 0, 65461, 0, 0
+26: Some college, less than 1 year, 4, 0, 61950, 0, 3511
+27: margin_Some college, less than 1 year, 3, 0, 65461, 0, 0
+28: Some college, 1 or more years, no degree, 4, 0, 64354, 0, 1107
+29: margin_Some college, 1 or more years, no degree, 4, 0, 65461, 0, 0
+30: Associate's degree, 4, 0, 61825, 0, 3636
+31: margin_Associate's degree, 3, 0, 65461, 0, 0
+32: Bachelor's degree, 4, 0, 63580, 0, 1881
+33: margin_Bachelor's degree, 3, 0, 65461, 0, 0
+34: Master's degree, 4, 0, 58774, 0, 6687
+35: margin_Master's degree, 3, 0, 65461, 0, 0
+36: Professional school degree, 4, 0, 44817, 0, 20644
+37: margin_Professional school degree, 3, 0, 65461, 0, 0
+38: Doctorate degree, 3, 0, 36877, 0, 28584
+39: margin_Doctorate degree, 3, 0, 65461, 0, 0
+40: Female:, 5, 0, 64974, 0, 487
+41: margin_Female:, 4, 0, 65460, 0, 1
+42: No schooling completed, 4, 0, 34752, 0, 30709
+43: margin_No schooling completed, 3, 0, 65461, 0, 0
+44: Nursery to 4th grade, 3, 0, 24596, 0, 40865
+45: margin_Nursery to 4th grade, 3, 0, 65461, 0, 0
+46: 5th and 6th grade, 3, 0, 36421, 0, 29040
+47: margin_5th and 6th grade, 3, 0, 65461, 0, 0
+48: 7th and 8th grade, 4, 0, 51434, 0, 14027
+49: margin_7th and 8th grade, 3, 0, 65461, 0, 0
+50: 9th grade, 3, 0, 47443, 0, 18018
+51: margin_9th grade, 3, 0, 65461, 0, 0
+52: 10th grade, 3, 0, 52962, 0, 12499
+53: margin_10th grade, 3, 0, 65461, 0, 0
+54: 11th grade, 4, 0, 53225, 0, 12236
+55: margin_11th grade, 3, 0, 65461, 0, 0
+56: 12th grade, no diploma, 3, 0, 52909, 0, 12552
+57: margin_12th grade, no diploma, 3, 0, 65461, 0, 0
+58: High school graduate, GED, or alternative, 4, 0, 64665, 0, 796
+59: margin_High school graduate, GED, or alternative, 4, 0, 65461, 0, 0
+60: Some college, less than 1 year, 4, 0, 63061, 0, 2400
+61: margin_Some college, less than 1 year, 3, 0, 65461, 0, 0
+62: Some college, 1 or more years, no degree, 4, 0, 64415, 0, 1046
+63: margin_Some college, 1 or more years, no degree, 3, 0, 65461, 0, 0
+64: Associate's degree, 4, 0, 63187, 0, 2274
+65: margin_Associate's degree, 3, 0, 65461, 0, 0
+66: Bachelor's degree, 4, 0, 63917, 0, 1544
+67: margin_Bachelor's degree, 4, 0, 65461, 0, 0
+68: Master's degree, 4, 0, 60650, 0, 4811
+69: margin_Master's degree, 4, 0, 65461, 0, 0
+70: Professional school degree, 3, 0, 41817, 0, 23644
+71: margin_Professional school degree, 3, 0, 65461, 0, 0
+72: Doctorate degree, 3, 0, 28478, 0, 36983
+73: margin_Doctorate degree, 3, 0, 65461, 0, 0
+
+
+---Trying to load. first make db:
+
+createdb -U irw_postgres -E UTF-8 acs20095
+
+then try to create the database. 
+
+psql -U irw_postgres -d acs20095 < schema_parsed.txt 
+
+in psql, copy the file in. 
+
+copy b150002 from '/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/20095_B15002_140.txt' with delimiter as e'\t' null as "";
+
+acs20095=# copy b15002 from '/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/20095_B15002_140.txt' with delimiter as e'\t' null as '';
+. It's trying to read this as utf-8. Try using latin-1.
+
+acs20095=# SET CLIENT_ENCODING TO Latin1;
+acs20095=# copy b15002 from '/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/20095_B15002_140.txt' with delimiter as e'\t' null as '';
+COPY 65461
+
+--acs20095=# copy b15002 from '/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/20095_B15002_140.txt' with delimiter as e'\t' null as '';
+COPY 65461
+
+---
+
+now summarize the files. I'm doing it in sql. 
+
+B20004: MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2009 INFLATION-ADJUSTED DOLLARS) BY SEX BY EDUCATIONAL ATTAINMENT FOR THE POPULATION 25 YEARS AND OVER --- Universe:  Population 25 years and over with earnings
+Reference file sequence: 61
+ 61_60: Total:
+ 61_61: Less than high school graduate
+ 61_62: High school graduate (includes equivalency)
+ 61_63: Some college or associate's degree
+ 61_64: Bachelor's degree
+ 61_65: Graduate or professional degree
+ 61_66: Male:
+ 61_67: Less than high school graduate
+ 61_68: High school graduate (includes equivalency)
+ 61_69: Some college or associate's degree
+ 61_70: Bachelor's degree
+ 61_71: Graduate or professional degree
+ 61_72: Female:
+ 61_73: Less than high school graduate
+ 61_74: High school graduate (includes equivalency)
+ 61_75: Some college or associate's degree
+ 61_76: Bachelor's degree
+ 61_77: Graduate or professional degree
+
+-- 
+alter table b15002 add column less_than_hs_grad_m int;
+alter table b15002 add column less_than_hs_grad_f int;
+alter table b15002 add column less_than_hs_grad int;
+
+update b15002 set less_than_hs_grad_m = no_schooling_completed + nursery_to_4th_grade  + "5th_and_6th_grade" + "7th_and_8th_grade" + "9th_grade"  + "10th_grade"  + "11th_grade" + "12th_grade_no_diploma" ;
+
+acs20095=# update b15002 set less_than_hs_grad_f = no_schooling_completed_1 + nursery_to_4th_grade_1  + "5th_and_6th_grade_1" + "7th_and_8th_grade_1" + "9th_grade_1"  + "10th_grade_1"  + "11th_grade_1" + "12th_grade_no_diploma_1";
+
+update b15002 set less_than_hs_grad = less_than_hs_grad_m + less_than_hs_grad_f;
+
+
+alter table b15002 add column less_than_hs_grad_rate float;
+alter table b15002 add column less_than_hs_grad_rate_f float;
+alter table b15002 add column less_than_hs_grad_rate_m float;
+
+update b15002 set less_than_hs_grad_rate = (0.0+less_than_hs_grad)/(0.0+total) where total > 0;
+
+update b15002 set less_than_hs_grad_rate_f = (0.0+less_than_hs_grad_f)/(0.0+female) where female > 0;
+
+update b15002 set less_than_hs_grad_rate_m = (0.0+less_than_hs_grad_f)/(0.0+male) where male > 0;
+
+--
+alter table b15002 add column ba_plus_m int;
+alter table b15002 add column ba_plus_f int;
+alter table b15002 add column ba_plus int;
+
+update b15002 set ba_plus_m = bachelors_degree + masters_degree + professional_school_degree + doctorate_degree;
+
+update b15002 set ba_plus_f = bachelors_degree_1 + masters_degree_1 + professional_school_degree_1 + doctorate_degree_1;
+
+update b15002 set ba_plus = ba_plus_m + ba_plus_f;
+
+-- make rates
+
+alter table b15002 add column ba_plus_m_rate float;
+alter table b15002 add column ba_plus_f_rate float;
+alter table b15002 add column ba_plus_rate float;
+
+update b15002 set ba_plus_m_rate = (0.0 + ba_plus_m) / (0.0+male) where male != 0;
+UPDATE 65031 
+update b15002 set ba_plus_f_rate = (0.0 + ba_plus_f) / (0.0+female) where female != 0;
+UPDATE 64974
+update b15002 set ba_plus_rate = (0.0 + ba_plus) / (0.0+total);
+acs20095=# update b15002 set ba_plus_rate = (0.0 + ba_plus) / (0.0+total) where total !=0;
+
+--then make m/f ratio too
+alter table b15002 add column fraction_male float;
+update b15002 set fraction_male = (0.0+male)/(0.0+total) where total != 0;
+
+--lets see about dumping this table:
+copy b15002 (geo_name, state, county, total, less_than_hs_grad_rate, less_than_hs_grad_rate_f, less_than_hs_grad_rate_m, ba_plus_rate, ba_plus_f_rate, ba_plus_m_rate, fraction_male) to  '/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/B15002_rates.txt' with csv;
+
+test that we can import to R:
+acs20095=# copy b15002 (geo_name, state, county, total, less_than_hs_grad_rate, less_than_hs_grad_rate_f, less_than_hs_grad_rate_m, ba_plus_rate, ba_plus_f_rate, ba_plus_m_rate, fraction_male) to  '/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/B15002_rates.txt' with csv;
+COPY 65461
+
+redump with \t delimiter:
+acs20095=# copy b15002 (geo_name, state, county, total, less_than_hs_grad_rate, less_than_hs_grad_rate_f, less_than_hs_grad_rate_m, ba_plus_rate, ba_plus_f_rate, ba_plus_m_rate, fraction_male) to  '/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/B15002_rates.txt' with delimiter as '\t';
+WARNING:  nonstandard use of escape in a string literal
+LINE 1: ...s_09_5yr/formatted/B15002_rates.txt' with delimiter as '\t';
+                                                                  ^
+HINT:  Use the escape string syntax for escapes, e.g., E'\r\n'.
+
+-
+Try:
+acs20095=# copy b15002 (geo_name, total, less_than_hs_grad_rate, less_than_hs_grad_rate_f, less_than_hs_grad_rate_m, ba_plus_rate, ba_plus_f_rate, ba_plus_m_rate, fraction_male) to  '/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/B15002_rates.txt' with delimiter as '\t' null as '';
+
+
+
+
+ names(a) <- c('geo_name', 'total', 'less_than_hs_grad_rate', 'less_than_hs_grad_rate_f', 'less_than_hs_grad_rate_m', 'ba_plus_rate', 'ba_plus_f_rate', 'ba_plus_m_rate', 'fraction_male')
+
+>  a <- read.table('/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/B15002_rates.txt', header=FALSE, sep="\t", quote='');
+> nrow(a)
+[1] 65461
+
+==
+
+back in postgres 
+
+acs20095=# select geo_name, total as mi, less_than_high_school_graduate as mi_lthsg, male as mi_male, female as mi_female, 0.0+female/(0.0+male) as mi_fmratio from b20004;
+
+select b15002.geo_name, b15002.state, b15002.county, b15002.total, less_than_hs_grad_rate, less_than_hs_grad_rate_f, less_than_hs_grad_rate_m, ba_plus_rate, ba_plus_f_rate, ba_plus_m_rate, fraction_male, b20004.total as mi, less_than_high_school_graduate as mi_lthsg, b20004.male as mi_male, b20004.female as mi_female, 0.0+b20004.female/(0.0+b20004.male) as mi_fmratio into nicar_demo from b15002, b20004 where b15002.geo_name = b20004.geo_name and b15002.county = b20004.county;
+
+---
+
+acs20095=# select b15002.geo_name, b15002.state, b15002.county, b15002.total, less_than_hs_grad_rate, less_than_hs_grad_rate_f, less_than_hs_grad_rate_m, ba_plus_rate, ba_plus_f_rate, ba_plus_m_rate, fraction_male, b20004.total as mi, less_than_high_school_graduate as mi_lthsg, b20004.male as mi_male, b20004.female as mi_female, 0.0+b20004.female/(0.0+b20004.male) as mi_fmratio into nicar_demo from b15002, b20004 where b15002.geo_name = b20004.geo_name and b15002.county = b20004.county;
+SELECT
+acs20095=# select count(*) from nicar_demo;
+ count 
+-------
+ 65461
+(1 row)
+
+acs20095=# \d nicar_demo;
+                  Table "public.nicar_demo"
+          Column          |         Type          | Modifiers 
+--------------------------+-----------------------+-----------
+ geo_name                 | character varying(62) | 
+ state                    | character(2)          | 
+ county                   | character(3)          | 
+ total                    | integer               | 
+ less_than_hs_grad_rate   | double precision      | 
+ less_than_hs_grad_rate_f | double precision      | 
+ less_than_hs_grad_rate_m | double precision      | 
+ ba_plus_rate             | double precision      | 
+ ba_plus_f_rate           | double precision      | 
+ ba_plus_m_rate           | double precision      | 
+ fraction_male            | double precision      | 
+ mi                       | integer               | 
+ mi_lthsg                 | integer               | 
+ mi_male                  | integer               | 
+ mi_female                | integer               | 
+ mi_fmratio               | numeric               | 
+
+acs20095=# 
+copy nicar_demo to  '/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/nicar_demo.txt' with text delimiter = e'\t' null as '';
+
+acs20095=# copy nicar_demo to  '/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/nicar_demo.txt' with delimiter as e'\t' null as '';
+COPY 65461
+
+-- back in R:
+>  a <- read.table('/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/nicar_demo.txt', header=FALSE, sep="\t", quote='');
+> nrow(a)
+[1] 65461
+>
+
+names(a) <- c('geo_name', 'state', 'county', 'total', 'less_than_hs_grad_rate', 'less_than_hs_grad_rate_f', 'less_than_hs_grad_rate_m', 'ba_plus_rate', 'ba_plus_f_rate', 'ba_plus_m_rate', 'fraction_male', 'mi', 'mi_lthsg', 'mi_male', 'mi_female', 'mi_fmratio')
+
+
+> a1 <- subset(a, a$state=='1')
+> nrow(a1)
+[1] 1082
+
+
+hist(a1$mi/1000, breaks=c(10*0:10, 1000), xlim=c(0,100), freq=TRUE, xlab="Median income, $000", main="Tract distribution, median income")
+
+--
+
+
+png("/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/hist1.png")
+hist(a1$mi/1000, breaks=c(10*0:10, 1000), xlim=c(0,100), freq=TRUE, xlab="Median income, $000", main="Tract distribution, median income")
+dev.off()
+
+-- set size:
+
+> png("/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/hist1.png", width=300, heigh=300, units="px")
+> hist(Alabama$mi/1000, breaks=c(10*0:10, 1000), xlim=c(0,100), freq=TRUE, xlab="Median income, $000", main="Median income in Alabama census tracts")
+Warning message:
+In plot.histogram(r, freq = freq1, col = col, border = border, angle = angle,  :
+  the AREAS in the plot are wrong -- rather use freq=FALSE
+> dev.off()
+quartz 
+     2 
+>
+
+b=data.matrix(a)
+cor(b, use="complete.obs")
+write.table(cor(b, use="complete.obs"), file="/Users/mrcomputeruser/IRW/django_sites/1.1.1/broadband/workshop/acs_09_5yr/formatted/correlations.txt", sep="|", eol="\n", row.names=TRUE)
+
+--
+http://www.r-tutor.com/elementary-statistics/numerical-measures/kurtosis
+> library(moments)                  # load the moments package 
+> duration = faithful$eruptions     # the eruption durations 
+> kurtosis(duration)                # apply the kurtosis function 
+[1] 1.4994
+
+
+-----
+
+
+> png("median_income.png", width=500, heigh=300, units="px")
+> hist(Alabama$mi/1000,  xlab="Median income, $000", main="Median income in Census tracts")
+Warning message:
+In plot.histogram(r, freq = freq1, col = col, border = border, angle = angle,  :
+  the AREAS in the plot are wrong -- rather use freq=FALSE
+> dev.off()
